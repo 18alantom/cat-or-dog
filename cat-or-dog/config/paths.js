@@ -34,7 +34,7 @@ const resolveModule = (resolveFn, filePath) => {
 module.exports = {
   dotenv: resolveApp(".env"),
   appPath: resolveApp("."),
-  appBuild: resolveApp("../flask-server/static"),
+  appBuild: resolveApp("../flask_server/flask_server/static"),
   appPublic: resolveApp("template"),
   appHtml: resolveApp("template/index.html"),
   appIndexJs: resolveModule(resolveApp, "src/index"),

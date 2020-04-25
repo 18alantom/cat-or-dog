@@ -15,6 +15,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .Button {
@@ -61,6 +62,14 @@
   background-color: pink;
   padding: 4px;
   border-radius: 2px;
+}
+
+.Verdict {
+  font-family: 'Playfair Display', serif;
+  margin: 0px;
+  color: hotpink;
+  letter-spacing: 3px;
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .Video {
