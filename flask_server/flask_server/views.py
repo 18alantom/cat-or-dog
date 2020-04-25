@@ -12,4 +12,4 @@ def index():
 def get_verdict():
     data = request.get_data()
     verdict = classifier.classify(data)
-    return "okay"
+    return verdict

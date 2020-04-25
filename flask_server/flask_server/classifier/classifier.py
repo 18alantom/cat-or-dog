@@ -7,7 +7,8 @@ from io import BytesIO, StringIO
 from base64 import b64decode
 
 from torchvision.transforms import Compose, ToTensor, Normalize
-from .model import device, model
+from .model import inference
+from .what_is_it import what_is_it
 
 MEAN = np.array([0.48826352, 0.45509255, 0.4174077])
 STD = np.array([0.22981022, 0.22478424, 0.22537524])
@@ -16,7 +17,6 @@ transforms = Compose([
     ToTensor(),
     Normalize(MEAN, STD)
 ])
-
 
 
 def to_tensor(image):
@@ -33,5 +33,5 @@ def response_to_image(data):
 def classify(data):
     image = response_to_image(data)
     tensor = to_tensor(image)
-    print(tensor.shape)
-    return 'okay'
+    probabilites = inference(tensor)
+    return what_is_it(*probabilites.numpy().squeeze())

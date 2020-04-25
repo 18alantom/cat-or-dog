@@ -5,6 +5,6 @@ setup(
     packages=['flask_server'],
     include_package_data=True,
     install_requires=[
-        'flask', 'pytorch', 'numpy', 'opencv', 'torchvision'
+        'flask', 'pytorch=1.5.0', 'numpy', 'opencv', 'torchvision'
     ],
 )

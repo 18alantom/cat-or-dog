@@ -1,4 +1,5 @@
 import torch
+from torch import nn
 
 from pathlib import Path
 from torchvision import models
@@ -13,9 +14,27 @@ def load_model():
     state_dict = torch.load(weights, device)
 
     model = models.resnet50()
+
+    # Replace the last layer
+    in_features = model.fc.in_features
+    out_features = 2
+    model.fc = nn.Sequential(
+        nn.Linear(in_features, out_features),
+        nn.Softmax(dim=1)
+    )
+
+    # TODO: Load state dict
     status = model.load_state_dict(state_dict)
-    # print(status)
-    return model, device
+    print(status)
+
+    model = model.to(device)
+
+    def inference(X):
+        model.eval()
+        X = X.to(device).reshape(1, *X.shape)
+        with torch.no_grad():
+            return model(X)
+    return inference
 
 
-model, device = load_model()
+inference = load_model()
