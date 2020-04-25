@@ -1,10 +1,9 @@
 import time
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return str(time.time())
-
+    return render_template("index.html",flask_token="hurrah~! it works~!")
