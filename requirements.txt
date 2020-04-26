@@ -4,6 +4,6 @@ torchvision==0.6.0
 numpy==1.18.1
 jinja2==2.11.2
 werkzeug==1.0.1
-opencv>=4.0.0
-libopencv>=4.0.0                    
-py-opencv==4.0.0
+opencv>=3.0.0
+libopencv>=3.0.0                    
+py-opencv==3.0.0
