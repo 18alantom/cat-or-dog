@@ -1,7 +1,7 @@
 # cat-or-dog
 
 🐈 a simple classifier app 🐕
-![Screenshot of the app](./example.png)
+<img src="example.png" width="250px">
 
 ## Classifier
 Makes use of a [Resnet 50](https://pytorch.org/docs/stable/torchvision/models.html#torchvision.models.resnet50) network pretrained on [ImageNet](http://www.image-net.org/) and then tuned on this [Cat and Dog](https://www.kaggle.com/tongpython/cat-and-dog) dataset.
