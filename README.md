@@ -21,4 +21,4 @@ To **run the app**, clone the repo; make sure [npm](https://www.npmjs.com) and o
 `$ npm install` from the `cat-or-dog` sub directory, `$ npm run build` then from the `flask_server` sub directory set `$ export FLASK_APP=flask_server` and `$ flask run`.
 ___
 
-The app may be hosted somewhere in the near future because the above procedure is almost cumbersome.
+The app maybe hosted somewhere in the near future because the above procedure is almost cumbersome.
