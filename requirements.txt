@@ -1,0 +1,9 @@
+flask==1.1.2
+pytorch==1.5.0
+torchvision==0.6.0
+numpy==1.18.1
+libopencv==4.2.0                    
+opencv==4.2.0
+py-opencv==4.2.0
+jinja2==2.11.2
+werkzeug==1.0.1
