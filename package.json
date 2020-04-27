@@ -4,6 +4,6 @@
   },
   "scripts": {
     "build": "cd cat-or-dog && npm install && npm run build ",
-    "start": "cd flask_server && gunicorn flask_server:app --preload"
+    "start": "gunicorn flask_server:app --preload"
   }
 }
