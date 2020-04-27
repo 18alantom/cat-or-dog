@@ -1,2 +1,1 @@
-web: cd flask_server && gunicorn flask_server:app --preload
-
+web:npm start
