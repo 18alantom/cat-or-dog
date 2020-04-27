@@ -50,5 +50,4 @@ def what_is_it(cat_prob, dog_prob):
 
     response = json.dumps(
         {"verdict": verdict, "probability": cat_prob.item()})
-    print(response)
     return response
