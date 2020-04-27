@@ -20,9 +20,10 @@ transforms = Compose([
     Normalize(MEAN, STD)
 ])
 
-# Loads the network when flask runs
-# else lazy loading.
-_ = inference(torch.rand(3, 224, 224))
+
+def fprint(*args, **kwargs):
+    print(*args, **kwargs)
+    sys.stdout.flush()
 
 
 def to_tensor(image):
@@ -42,15 +43,24 @@ def grad_times(t):
 
 
 def classify(data):
-    print("img received")
-    sys.stdout.flush()
+    fprint("img received")
+
     image = response_to_image(data)
+    fprint("img decoded")
+
     tensor = to_tensor(image)
+    fprint("img converted to tensor")
+
     t1 = time.time()
     probabilites = inference(tensor)
     t2 = time.time()
     print(f"infr time: {grad_times(t2-t1)} | ", end="")
     response = what_is_it(*probabilites.numpy().squeeze())
-    print(f"resp: {response} ")
-    sys.stdout.flush()
+    fprint(f"resp: {response} ")
     return response
+
+
+# Loads the network when flask runs
+# else lazy loading.
+_ = inference(torch.rand(3, 224, 224))
+fprint("model loaded")
