@@ -1,2 +1,2 @@
-web: cd flask_server && gunicorn flask_server:app
+web: cd flask_server && gunicorn flask_server:app --preload
 
