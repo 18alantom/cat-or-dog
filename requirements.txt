@@ -6,4 +6,4 @@ opencv-contrib-python==4.2.0.34
 opencv-python==4.2.0.34
 werkzeug==1.0.1
 https://download.pytorch.org/whl/cpu/torchvision-0.6.0%2Bcpu-cp37-cp37m-linux_x86_64.whl
-https://download.pytorch.org/whl/cu92/torch-1.5.0%2Bcu92-cp37-cp37m-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torch-1.5.0%2Bcpu-cp37-cp37m-linux_x86_64.whll
