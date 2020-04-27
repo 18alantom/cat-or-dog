@@ -9,8 +9,8 @@ coverage/
 
 # production
 build/
-flask_server/flask_server/templates/
-flask_server/flask_server/static/
+flask_server/flask_server/templates
+flask_server/flask_server/static
 
 # misc
 .DS_Store
