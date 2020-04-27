@@ -4,8 +4,8 @@ Jinja2==2.11.2
 numpy==1.18.1
 # torch==1.5.0+cpu 
 # torchvision==0.6.0+cpu
-cpu/torch-1.5.0%2Bcpu-cp38-cp38-linux_x86_64.whl
-cpu/torchvision-0.6.0%2Bcpu-cp38-cp38-linux_x86_64.whl
-werkzeug==1.0.1
 opencv-contrib-python==4.1.0.25
 opencv-python==4.1.0.25
+https://download.pytorch.org/whl/cpu/torch-1.5.0%2Bcpu-cp38-cp38-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torchvision-0.6.0%2Bcpu-cp38-cp38-linux_x86_64.whl
+werkzeug==1.0.1
