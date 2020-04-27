@@ -3,6 +3,6 @@
     "node": "10.8.0"
   },
   "scripts": {
-    "build":"npm install ./cat-or-dog && cd ./cat-or-dog &&npm run build "
+    "build":"cd cat-or-dog && npm install && npm run build "
   }
 }

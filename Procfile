@@ -1,3 +1,2 @@
-release: npm run build
-web: cd flask_server && gunicorn app:flask_server
+web: cd flask_server && gunicorn flask_server:app
 
