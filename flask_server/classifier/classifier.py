@@ -1,3 +1,4 @@
+import sys
 import time
 import cv2
 import numpy as np
@@ -41,13 +42,15 @@ def grad_times(t):
 
 
 def classify(data):
+    print("img received")
+    sys.stdout.flush()
     image = response_to_image(data)
     tensor = to_tensor(image)
-    print(f"img received: {tensor.shape} | ", end="")
     t1 = time.time()
     probabilites = inference(tensor)
     t2 = time.time()
-    print(f"infr time: {grad_times(t2-t1)} | ")
+    print(f"infr time: {grad_times(t2-t1)} | ", end="")
     response = what_is_it(*probabilites.numpy().squeeze())
     print(f"resp: {response} ")
+    sys.stdout.flush()
     return response

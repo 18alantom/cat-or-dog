@@ -1,3 +1,4 @@
+import sys
 import torch
 from torch import nn
 
@@ -26,6 +27,7 @@ def load_model():
     # Load trianed network weights
     status = model.load_state_dict(state_dict)
     print(status)
+    sys.stdout.flush()
 
     model = model.to(device)
 
