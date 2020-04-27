@@ -27,13 +27,13 @@ def fprint(*args, **kwargs):
 
 
 def to_tensor(image):
-    return transforms(image)
+    return transforms(np.uint8(image))
 
 
 def response_to_image(data):
     data_uri = str(data).split(",")[1]
     decoded = b64decode(data_uri)
-    buffer = np.fromstring(decoded, np.uint8)
+    buffer = np.fromstring(decoded, dtype=np.uint8)
     return cv2.imdecode(buffer, cv2.IMREAD_COLOR)[:, :, ::-1].copy()
 
 
@@ -47,8 +47,10 @@ def classify(data):
 
     image = response_to_image(data)
     fprint("img decoded")
+    fprint(image.dtype, image.shape, image[0][0])
 
     tensor = to_tensor(image)
+    print(tensor)
     fprint("img converted to tensor")
 
     t1 = time.time()
