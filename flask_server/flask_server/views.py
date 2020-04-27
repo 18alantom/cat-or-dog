@@ -1,3 +1,4 @@
+import torch
 from flask import render_template, request
 from flask_server import app
 from flask_server import classifier

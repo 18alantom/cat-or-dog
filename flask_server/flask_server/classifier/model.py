@@ -23,7 +23,7 @@ def load_model():
         nn.Softmax(dim=1)
     )
 
-    # TODO: Load state dict
+    # Load trianed network weights
     status = model.load_state_dict(state_dict)
     print(status)
 

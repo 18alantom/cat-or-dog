@@ -6,7 +6,8 @@ from pathlib import Path
 from io import BytesIO, StringIO
 from base64 import b64decode
 
-from torchvision.transforms import Compose, ToTensor, Normalize
+import torch
+from torchvision.transforms import Compose, ToTensor, Normalize, Resize
 from .model import inference
 from .what_is_it import what_is_it
 
@@ -14,10 +15,14 @@ MEAN = np.array([0.48826352, 0.45509255, 0.4174077])
 STD = np.array([0.22981022, 0.22478424, 0.22537524])
 
 transforms = Compose([
+    Resize((224, 224)),
     ToTensor(),
     Normalize(MEAN, STD)
 ])
 
+# Loads the network when flask runs
+# else lazy loading.
+_ = inference(torch.rand(3,224,224))
 
 def to_tensor(image):
     return transforms(image)
