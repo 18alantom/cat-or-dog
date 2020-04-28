@@ -45,14 +45,8 @@ def grad_times(t):
 
 
 def classify(data):
-    fprint("img received")
-
     image = response_to_image(data)
-    fprint("img decoded")
-    fprint(image.dtype, image.shape, image[0][0])
-
     tensor = to_tensor(image)
-    fprint("img converted to tensor")
 
     t1 = time.time()
     probabilites = inference(tensor)
@@ -64,7 +58,6 @@ def classify(data):
 
 
 # Loads the network when flask runs
-# else lazy loading.
-fprint("does this print?")
+# else lazy loading?
 _ = inference(torch.rand(3, 224, 224))
 fprint("model loaded")

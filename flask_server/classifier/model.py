@@ -37,17 +37,9 @@ def load_model():
 
     def inference(X):
         model.eval()
-        print('evaling model')
         X = X.to(device).reshape(1, *X.shape)
-        print('sent X to device')
         with torch.no_grad():
-            print('running inference')
-            print("total: ",gb(psutil.virtual_memory().total))
-            print("used: ",gb(psutil.virtual_memory().used))
-            print("free: ",gb(psutil.virtual_memory().free))
-            print("avail: ",gb(psutil.virtual_memory().available))
             y_ =  model(X)
-            print(gb(psutil.virtual_memory().available))
             return y_
     return inference
 
