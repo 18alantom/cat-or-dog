@@ -25,13 +25,13 @@ no = Normalize(MEAN, STD)
 
 def tt(image):
     image = image.transpose(2,0,1)
-    fprint('tt trns', image.dtype, image.shape, image[0][0])
-    image = torch.tensor(image)
-    fprint('tt tens', image.dtype, image.shape, image[0][0])
-    image = image.float()
-    fprint('tt floa', image.dtype, image.shape, image[0][0])
-    image = torch/255
-    fprint('tt scal', image.dtype, image.shape, image[0][0])
+    fprint('tt trns', image.dtype, image.shape, image[0][0][:3])
+    image = np.float32(image)
+    fprint('tt floa', image.dtype, image.shape, image[0][0][:3])
+    image = image/255
+    fprint('tt scal', image.dtype, image.shape, image[0][0][:3])
+    image = torch.from_numpy(image)
+    fprint('tt tens', image.dtype, image.shape, image[0][0][:3])
     return image
 
 
