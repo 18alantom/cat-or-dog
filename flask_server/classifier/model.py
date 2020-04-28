@@ -33,8 +33,11 @@ def load_model():
 
     def inference(X):
         model.eval()
+        print('evaling model')
         X = X.to(device).reshape(1, *X.shape)
+        print('sent X to device')
         with torch.no_grad():
+            print('running inference')
             return model(X)
     return inference
 
