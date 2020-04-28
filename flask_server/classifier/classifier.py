@@ -31,10 +31,11 @@ def fprint(*args, **kwargs):
 # def to_tensor(image):
 #     return transforms(np.uint8(image))
 def to_tensor(image):
+    fprint('bef tt', image.dtype, image.shape, image[0][0])
     image = tt(image)
-    fprint(image.dtype, image.shape, image[0][0])
+    fprint('bef no', image.dtype, image.shape, image[0][0])
     image = no(image)
-    fprint(image.dtype, image.shape, image[0][0])
+    fprint('fin im', image.dtype, image.shape, image[0][0])
     return image
 
 
