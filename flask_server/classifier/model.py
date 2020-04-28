@@ -1,9 +1,13 @@
 import sys
 import torch
+import psutil
+
 from torch import nn
 
 from pathlib import Path
 from torchvision import models
+
+gb = lambda x: f"{x/(2**20):3f} MB"
 
 
 def load_model():
@@ -38,7 +42,13 @@ def load_model():
         print('sent X to device')
         with torch.no_grad():
             print('running inference')
-            return model(X)
+            print("total: ",gb(psutil.virtual_memory().total))
+            print("used: ",gb(psutil.virtual_memory().used))
+            print("free: ",gb(psutil.virtual_memory().free))
+            print("avail: ",gb(psutil.virtual_memory().available))
+            y_ =  model(X)
+            print(gb(psutil.virtual_memory().available))
+            return y_
     return inference
 
 
