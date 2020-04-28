@@ -60,4 +60,4 @@ def classify(data):
 # Loads the network when flask runs
 # else lazy loading?
 _ = inference(torch.rand(3, 224, 224))
-fprint("model loaded")
+fprint("model loaded ")
