@@ -1,4 +1,3 @@
-import sys
 import time
 import cv2
 import numpy as np
@@ -19,8 +18,11 @@ STD = np.array([0.22981022, 0.22478424, 0.22537524])
 # ToTensor(),
 # Normalize(MEAN, STD)
 # ])
-tt = ToTensor()
+# tt = ToTensor()
 no = Normalize(MEAN, STD)
+
+
+tt = lambda i: torch.tensor(i.transpose(2, 0, 1)).float()/255
 
 
 def fprint(*args, **kwargs):
