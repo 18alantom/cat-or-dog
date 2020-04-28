@@ -8,28 +8,26 @@ from io import BytesIO, StringIO
 from base64 import b64decode
 
 import torch
-from torchvision.transforms import Compose, ToTensor, Normalize
 from .model import inference
 from .what_is_it import what_is_it
 
-MEAN = np.array([0.48826352, 0.45509255, 0.4174077])
-STD = np.array([0.22981022, 0.22478424, 0.22537524])
-
-# transforms = Compose([
-# ToTensor(),
-# Normalize(MEAN, STD)
-# ])
-# tt = ToTensor()
-no = Normalize(MEAN, STD)
+MEAN = np.array([0.48826352, 0.45509255, 0.4174077]).reshape(3,1,1)
+STD = np.array([0.22981022, 0.22478424, 0.22537524]).reshape(3,1,1)
 
 
-def tt(image):
+def normalize(image):
+    image = (image - MEAN) / STD
+    return image
+
+def to_tensor(image):
     image = image.transpose(2,0,1)
     fprint('tt trns', image.dtype, image.shape, image[0][0][:3])
-    image = np.float32(image)
-    fprint('tt floa', image.dtype, image.shape, image[0][0][:3])
     image = image/255
     fprint('tt scal', image.dtype, image.shape, image[0][0][:3])
+    image = normalize(image)
+    fprint('tt norm', image.dtype, image.shape, image[0][0][:3])
+    image = np.float32(image)
+    fprint('tt floa', image.dtype, image.shape, image[0][0][:3])
     image = torch.from_numpy(image)
     fprint('tt tens', image.dtype, image.shape, image[0][0][:3])
     return image
@@ -39,17 +37,6 @@ def tt(image):
 def fprint(*args, **kwargs):
     print(*args, **kwargs)
     sys.stdout.flush()
-
-
-# def to_tensor(image):
-#     return transforms(np.uint8(image))
-def to_tensor(image):
-    fprint('bef tt', image.dtype, image.shape, image[0][0])
-    image = tt(image)
-    fprint('bef no', image.dtype, image.shape, image[0][0])
-    image = no(image)
-    fprint('fin im', image.dtype, image.shape, image[0][0])
-    return image
 
 
 def response_to_image(data):
@@ -72,7 +59,6 @@ def classify(data):
     fprint(image.dtype, image.shape, image[0][0])
 
     tensor = to_tensor(image)
-    print(tensor)
     fprint("img converted to tensor")
 
     t1 = time.time()
