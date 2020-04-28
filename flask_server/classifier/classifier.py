@@ -23,7 +23,15 @@ STD = np.array([0.22981022, 0.22478424, 0.22537524])
 no = Normalize(MEAN, STD)
 
 
-tt = lambda i: torch.tensor(i.transpose(2, 0, 1)).float()/255
+def tt(image):
+    image = image.transpose(2,0,1)
+    fprint('tt trns', image.dtype, image.shape, image[0][0])
+    image = torch.tensor(image).float()
+    fprint('tt tens', image.dtype, image.shape, image[0][0])
+    image = torch/255
+    fprint('tt scal', image.dtype, image.shape, image[0][0])
+    return image
+
 
 
 def fprint(*args, **kwargs):
