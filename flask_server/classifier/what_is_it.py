@@ -46,7 +46,7 @@ def what_is_it(cat_prob, dog_prob):
 
     i = prob_to_index(prob)
     l = len(arr[i])
-    verdict = cat[i][np.random.randint(0, l)]
+    verdict = arr[i][np.random.randint(0, l)]
 
     response = json.dumps(
         {"verdict": verdict, "probability": cat_prob.item()})
